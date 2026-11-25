@@ -3,16 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seximal Calculator</title>
+  <title>Seximal Calculator — Des' stuff</title>
   <script src="./mini-coi.js" scope="./"></script>
   
   <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
   <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #0044cc;
+      --visited: #551a8b;
+      --header-bg: #1a1a2e;
+      --header-text: #ffffff;
+      --border: #cccccc;
+      --term-bg: #161822;
+      --term-bar: #26293a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* Matching Hub Header */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1.25rem 1rem;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .nav-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin: 0 0 0.75rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .site-title a {
+      color: var(--header-text);
+      text-decoration: none;
+    }
+
+    nav.topic-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    nav.topic-index a {
+      color: #aaccff;
+      text-decoration: underline;
+    }
+
+    nav.topic-index a:hover,
+    nav.topic-index a[aria-current="page"] {
+      color: #ffffff;
+      background-color: var(--accent);
+    }
+
+    /* Main Column */
+    main {
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .byline {
+      margin: 0 0 1.25rem 0;
+      font-size: 0.9rem;
+      color: #444444;
+    }
+
+    p {
+      margin: 0 0 1.1rem 0;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:visited {
+      color: var(--visited);
+    }
+
+    code {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f0f0f0;
+      padding: 0.1rem 0.3rem;
+      border: 1px solid #dddddd;
+    }
+
+    /* Terminal Window Frame */
+    .terminal-window {
+      border: 2px solid var(--header-bg);
+      background-color: var(--term-bg);
+      margin: 1.25rem 0 1.75rem 0;
+      box-shadow: 4px 4px 0px #cccccc;
+    }
+
+    .terminal-bar {
+      background-color: var(--term-bar);
+      min-height: 1.5rem;
+      border-bottom: 1px solid #3b4058;
+    }
+
+    .terminal-body {
+      padding: 0.75rem;
+      min-height: 260px;
+      color: #f8fafc;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      max-width: 760px;
+      margin: 3rem auto 2rem auto;
+      padding: 1rem;
+      border-top: 2px solid var(--border);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    footer.site-footer a {
+      margin-right: 0.9rem;
+    }
+  </style>
 </head>
-<body style="background-color: #1e1e1e; color: white; font-family: sans-serif; padding: 20px;">
-  <h2>Seximal Calculator</h2>
-  <h3>By Deszy</h3>
-  
-  <script type="py" src="./seximalarithmetic.py" terminal worker></script>
+<body id="top">
+
+  <header>
+    <div class="nav-wrap">
+      <div class="site-title"><a href="../">Des' stuff</a></div>
+      <nav class="topic-index" aria-label="Site sections">
+        <a href="../">home</a>
+        <a href="./" aria-current="page">Seximal Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Seximal Calculator</h1>
+    <p class="byline">By Deszy &middot; Running in Python via PyScript</p>
+
+    <p>
+      Enter numbers in <strong>base six</strong> (digits <code>0</code>–<code>5</code>) in the interactive terminal below to run basic arithmetic.
+    </p>
+
+    <div class="terminal-window">
+      <div class="terminal-bar"></div>
+      <div class="terminal-body">
+        <script type="py" src="./seximalarithmetic.py" terminal worker></script>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="../">&larr; back to Des' stuff</a>
+      <a href="#top">Back to Top</a>
+    </div>
+    <div>
+      last updated: november 2026
+    </div>
+  </footer>
+
 </body>
 </html>
