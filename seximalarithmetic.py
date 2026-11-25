@@ -62,10 +62,6 @@ def to_seximal(num, den, places=10):
     rem %= den
   return res
 
-print("SEXIMAL CALC (0-5)")
-print("Ex: 14.3+2.1 or +5")
-print("Type 'q' to quit\n")
-
 ans_n, ans_d = 0, 1
 
 while True:
