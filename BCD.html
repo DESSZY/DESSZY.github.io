@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base Converter — Des' stuff</title>
-  <script src="https://desmos.com"></script>
+  
+  <!-- Correct Desmos API script (using the standard public API v1.8 with a test/public key) -->
+  <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
   <style>
     :root {
@@ -17,7 +19,8 @@
       --border: #cccccc;
     }
 
-    * {
+    /* Fixed stray hyphen selector */
+    *, *::before, *::after {
       box-sizing: border-box;
     }
 
