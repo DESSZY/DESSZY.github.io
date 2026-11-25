@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Des' stuff</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #0044cc;
+      --visited: #551a8b;
+      --header-bg: #1a1a2e;
+      --header-text: #ffffff;
+      --border: #cccccc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* Top Topic Index Bar */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1.25rem 1rem;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .nav-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin: 0 0 0.75rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .site-title a {
+      color: var(--header-text);
+      text-decoration: none;
+    }
+
+    nav.topic-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    nav.topic-index a {
+      color: #aaccff;
+      text-decoration: underline;
+    }
+
+    nav.topic-index a:hover {
+      color: #ffffff;
+      background-color: var(--accent);
+    }
+
+    /* Main Content Column */
+    main {
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2.25rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    p {
+      margin: 0 0 1.15rem 0;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:visited {
+      color: var(--visited);
+    }
+
+    a:hover {
+      background-color: #eef4ff;
+    }
+
+    ul.page-list {
+      padding-left: 1.25rem;
+    }
+
+    ul.page-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f0f0f0;
+      padding: 0.1rem 0.3rem;
+      border: 1px solid #dddddd;
+    }
+
+    sub {
+      font-size: 0.75em;
+      line-height: 0;
+    }
+
+    /* Simple Footer */
+    footer.site-footer {
+      max-width: 760px;
+      margin: 3rem auto 2rem auto;
+      padding: 1rem;
+      border-top: 2px solid var(--border);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    footer.site-footer a {
+      margin-right: 0.9rem;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header>
+    <div class="nav-wrap">
+      <div class="site-title"><a href="#top">Des' stuff</a></div>
+      <nav class="topic-index" aria-label="Site sections">
+        <a href="./SeximalCalculator/">Seximal Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>I do essays and coding and stuff</h1>
+
+    <p>
+      I have made a <a href="./SeximalCalculator/">Seximal Calculator</a>, and more is probably going to be here soon, including worldbuilding, essays, and conlangs.
+    </p>
+
+    <h2 id="overview">directory of pages</h2>
+    <ul class="page-list">
+      <li><a href="./SeximalCalculator/"><strong>Seximal Calculator</strong></a> — A calculator to do basic math in seximal. It isn't very finished, and only has addition, subtraction, multiplication, and division.</li>
+    </ul>
+
+    <h2 id="notes">conventions on this site</h2>
+    <p>
+      Numbers will be in seximal unless notated like <code>14<sub>10</sub></code> (the subscript can be any base, just using Base ten as an example).
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      
+    </div>
+    <div>
+      last updated: november 2026
+    </div>
+  </footer>
+
+</body>
+</html>
