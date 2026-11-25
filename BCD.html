@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base Converter — Des' stuff</title>
-  
-  <!-- Correct Desmos API script (using the standard public API v1.8 with a test/public key) -->
   <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
   <style>
@@ -19,7 +17,6 @@
       --border: #cccccc;
     }
 
-    /* Fixed stray hyphen selector */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -242,7 +239,7 @@
                 "type": "expression",
                 "id": "1",
                 "color": "#c74440",
-                "latex": "B_{10}=100",
+                "latex": "B_{10}=54",
                 "slider": {
                     "hardMin": true,
                     "min": "-100",
@@ -252,7 +249,8 @@
             },
             {
                 "type": "folder",
-                "id": "235"
+                "id": "235",
+                "collapsed": true
             },
             {
                 "type": "text",
@@ -265,7 +263,7 @@
                 "id": "231",
                 "folderId": "235",
                 "color": "#2d70b3",
-                "latex": "B=5",
+                "latex": "B=6",
                 "slider": {
                     "hardMin": true,
                     "hardMax": true,
