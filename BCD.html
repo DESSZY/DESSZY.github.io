@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Converter — Des' stuff</title>
+  <script src="https://desmos.com"></script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #0044cc;
+      --visited: #551a8b;
+      --header-bg: #1a1a2e;
+      --header-text: #ffffff;
+      --border: #cccccc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1.25rem 1rem;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .nav-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin: 0 0 0.75rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .site-title a {
+      color: var(--header-text);
+      text-decoration: none;
+    }
+
+    nav.topic-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    nav.topic-index a {
+      color: #aaccff;
+      text-decoration: underline;
+    }
+
+    nav.topic-index a:hover,
+    nav.topic-index a[aria-current="page"] {
+      color: #ffffff;
+      background-color: var(--accent);
+    }
+
+    main {
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .byline {
+      margin: 0 0 1.25rem 0;
+      font-size: 0.9rem;
+      color: #444444;
+    }
+
+    p {
+      margin: 0 0 1.1rem 0;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:visited {
+      color: var(--visited);
+    }
+
+    code {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f0f0f0;
+      padding: 0.1rem 0.3rem;
+      border: 1px solid #dddddd;
+    }
+
+    sub {
+      font-size: 0.75em;
+      line-height: 0;
+    }
+
+    .embed-frame {
+      border: 2px solid var(--header-bg);
+      background-color: #f8fafc;
+      margin: 1.25rem 0 1.75rem 0;
+      box-shadow: 4px 4px 0px #cccccc;
+    }
+
+    .embed-bar {
+      background-color: #26293a;
+      color: #e2e8f0;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #3b4058;
+    }
+
+    .embed-bar a {
+      color: #aaccff;
+      text-decoration: underline;
+    }
+
+    #calculator {
+      width: 100%;
+      height: 560px;
+    }
+
+    footer.site-footer {
+      max-width: 760px;
+      margin: 3rem auto 2rem auto;
+      padding: 1rem;
+      border-top: 2px solid var(--border);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    footer.site-footer a {
+      margin-right: 0.9rem;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header>
+    <div class="nav-wrap">
+      <div class="site-title"><a href="../">Des' stuff</a></div>
+      <nav class="topic-index" aria-label="Site sections">
+        <a href="../">home</a>
+        <a href="../SeximalCalculator/">Seximal Calculator</a>
+        <a href="./" aria-current="page">Base Converter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Base Converter</h1>
+    <p class="byline">By Deszy &middot; Built in Desmos</p>
+
+    <p>
+      Use the Desmos calculator below to convert numbers from <strong>base <code>14<sub>10</sub></code> (ten)</strong> into any smaller base (such as binary, ternary, or seximal). Adjust <code>B<sub>10</sub></code> on the left, and expand the folder to change the target base <code>B</code>.
+    </p>
+
+    <div class="embed-frame">
+      <div class="embed-bar">
+        <span>desmos.com/calculator/iadux6bt0g</span>
+        <a href="https://desmos.com" target="_blank" rel="noopener">open full screen &nearr;</a>
+      </div>
+      <div id="calculator"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="../">&larr; back to Des' stuff</a>
+      <a href="#top">Back to Top</a>
+    </div>
+    <div>
+      last updated: november 2026
+    </div>
+  </footer>
+
+  <script>
+    const elt = document.getElementById('calculator');
+    const calculator = Desmos.GraphingCalculator(elt, {
+      expressions: true,
+      keypad: true,
+      keypadActivated: false,
+      settingsMenu: true,
+      zoomButtons: true,
+      expressionsTopbar: true
+    });
+
+    const graphState = {
+    "version": 11,
+    "randomSeed": "9155058227112eb1dacaa5195fb5d5b4",
+    "graph": {
+        "viewport": {
+            "xmin": -61.3098466016927,
+            "ymin": -150.71341801696406,
+            "xmax": 698.6074313379415,
+            "ymax": 554.5746135471815
+        },
+        "__v12ViewportLatexStash": {
+            "xmin": "-61.3098466016927",
+            "xmax": "698.6074313379415",
+            "ymin": "-150.71341801696406",
+            "ymax": "554.5746135471815"
+        }
+    },
+    "expressions": {
+        "list": [
+            {
+                "type": "text",
+                "id": "293",
+                "text": "B_10 is the base 10 integer you intend to convert to a lower base system."
+            },
+            {
+                "type": "expression",
+                "id": "1",
+                "color": "#c74440",
+                "latex": "B_{10}=100",
+                "slider": {
+                    "hardMin": true,
+                    "min": "-100",
+                    "max": "100",
+                    "step": "1"
+                }
+            },
+            {
+                "type": "folder",
+                "id": "235"
+            },
+            {
+                "type": "text",
+                "id": "295",
+                "folderId": "235",
+                "text": "B is the target base system you want to convert to. B = 6 is converting to base 6. "
+            },
+            {
+                "type": "expression",
+                "id": "231",
+                "folderId": "235",
+                "color": "#2d70b3",
+                "latex": "B=5",
+                "slider": {
+                    "hardMin": true,
+                    "hardMax": true,
+                    "min": "1",
+                    "step": "1"
+                }
+            },
+            {
+                "type": "text",
+                "id": "297",
+                "folderId": "235",
+                "text": "A is the absolute value of B_10. The equations cannot handle negative integers on their own, so this is returned to a negative later."
+            },
+            {
+                "type": "expression",
+                "id": "236",
+                "folderId": "235",
+                "color": "#6042a6",
+                "latex": "A=\\left|B_{10}\\right|"
+            },
+            {
+                "type": "text",
+                "id": "299",
+                "folderId": "235",
+                "text": "f(x) divides the pervious quotient by 5 until the value is zero. "
+            },
+            {
+                "type": "expression",
+                "id": "217",
+                "folderId": "235",
+                "color": "#2d70b3",
+                "latex": "f\\left(x\\right)=\\operatorname{floor}\\left(\\frac{\\left(f\\left(x-1\\right)\\right)}{B}\\right)"
+            },
+            {
+                "type": "expression",
+                "id": "218",
+                "folderId": "235",
+                "color": "#388c46",
+                "latex": "f\\left(1\\right)=A",
+                "hidden": true
+            },
+            {
+                "type": "text",
+                "id": "301",
+                "folderId": "235",
+                "text": "r(x_1) calculates the mod of the same f(x) index with B, multiplies it by a power of 10, and then adds that to the previous result of R(x_1). also turns negative integers back into negatives. "
+            },
+            {
+                "type": "expression",
+                "id": "223",
+                "folderId": "235",
+                "color": "#c74440",
+                "latex": "r\\left(x_{1}\\right)=r\\left(x_{1}-1\\right)+\\left(\\operatorname{mod}\\left(f\\left(x_{1}\\right),B\\right)\\cdot10^{\\left(x_{1}-1\\right)}\\right)\\left(\\frac{B_{10}}{\\operatorname{abs}\\left(B_{10}\\right)}\\right)"
+            },
+            {
+                "type": "expression",
+                "id": "224",
+                "folderId": "235",
+                "color": "#2d70b3",
+                "latex": "r\\left(1\\right)=\\operatorname{mod}\\left(f\\left(1\\right),B\\right)\\left(\\frac{B_{10}}{\\operatorname{abs}\\left(B_{10}\\right)}\\right)",
+                "hidden": true
+            },
+            {
+                "type": "text",
+                "id": "303",
+                "folderId": "235",
+                "text": "a indexes the point where f(x) is zero"
+            },
+            {
+                "type": "expression",
+                "id": "225",
+                "folderId": "235",
+                "color": "#388c46",
+                "latex": "a=\\min\\left(x_{1}\\left[f\\left(x_{1}\\right)=0\\right]\\right)"
+            },
+            {
+                "id": "227",
+                "type": "table",
+                "folderId": "235",
+                "columns": [
+                    {
+                        "values": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12",
+                            "13",
+                            "14",
+                            "15",
+                            "16"
+                        ],
+                        "hidden": true,
+                        "id": "228",
+                        "color": "#000000",
+                        "latex": "x_{1}"
+                    },
+                    {
+                        "id": "229",
+                        "color": "#c74440",
+                        "latex": "r\\left(x_{1}\\right)"
+                    }
+                ]
+            },
+            {
+                "id": "219",
+                "type": "table",
+                "folderId": "235",
+                "columns": [
+                    {
+                        "values": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12",
+                            "13",
+                            "14",
+                            "15",
+                            "16"
+                        ],
+                        "hidden": true,
+                        "id": "220",
+                        "color": "#6042a6",
+                        "latex": "x"
+                    },
+                    {
+                        "id": "221",
+                        "color": "#2d70b3",
+                        "latex": "f\\left(x\\right)"
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "id": "305",
+                "text": "the integer in the target base system. "
+            },
+            {
+                "type": "expression",
+                "id": "226",
+                "color": "#6042a6",
+                "latex": "B_{0}=r\\left(a\\right)"
+            },
+            {
+                "type": "expression",
+                "id": "307",
+                "color": "#000000"
+            }
+        ]
+    },
+    "includeFunctionParametersInRandomSeed": true,
+    "doNotMigrateMovablePointStyle": true,
+    "backmigrated": 15
+}
+    calculator.setState(graphState);
+  </script>
+
+</body>
+</html>
